@@ -1,5 +1,4 @@
 const { Sequelize } = require("sequelize");
-const Task = require("../models/task");
 
 const sequelize = new Sequelize("crud", "root", "25091994", {
   dialect: "mysql",
@@ -19,12 +18,6 @@ const connectionTest = async () => {
 sequelize.sync({
   force: true,
 });
-
-const createNewTask = async () => {
-  const task = await Task.create({ name: "Task 1" });
-};
-
-createNewTask();
 
 connectionTest();
 

@@ -1,5 +1,5 @@
-const res = require("express/lib/response");
 const { pickBy } = require("lodash");
+const Task = require("../models/task");
 const db = require("../util/db");
 
 exports.getTasks = (_, res) => {
@@ -9,6 +9,9 @@ exports.getTasks = (_, res) => {
     }
     res.send(rows);
   });
+  // Task.findAll().then((tasks) => {
+  //   console.log(tasks);
+  // });
 };
 
 exports.getTask = (req, res) => {
@@ -17,7 +20,6 @@ exports.getTask = (req, res) => {
   } = req;
 
   const convertedId = db.escape(id);
-  console.log(convertedId);
   const sql = "SELECT * FROM tasks WHERE id = " + convertedId;
   db.query(sql, (err, rows) => {
     if (err) {
@@ -33,8 +35,10 @@ exports.createTask = (req, res) => {
     name,
     status,
   };
-  db.query("INSERT INTO tasks set ?", newTask, (err, data) => {
+  // Task.createTask(newTask);
+  db.query("INSERT INTO tasks SET ?", newTask, (err, data) => {
     if (err) {
+      console.log(err);
       return res.send("error");
     }
     res.send(data);

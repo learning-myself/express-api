@@ -13,11 +13,14 @@ const Task = sequelize.define("task", {
   status: DataTypes.BOOLEAN,
 });
 
-// const createNewTask = async () => {
-//   const task = await Task.create({ name: "Task 1" });
-//   console.log("task", task);
-// };
-
-// createNewTask();
+// (async () => {
+//   await sequelize.sync({ force: true });
+//   // Code here
+//   const createNewTask = async () => {
+//     const task = await Task.create({ name: "Task 2" });
+//     console.log("task", task);
+//   };
+//   createNewTask();
+// })();
 
 module.exports = Task;

@@ -1,8 +1,17 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mainRoutes = require("./routes");
+// const sequelize = require("./util/sequelize");
 
-const Task = require("./models/task");
+// const Task = require("./models/task");
+
+// (async () => {
+//   await sequelize.sync({ force: true });
+//   const newTask = await Task.create({ name: "New task" });
+//   console.log(newTask.name);
+//   newTask.name = "Task 2";
+//   await newTask.destroy();
+// })();
 
 // console.log("Task", Task);
 

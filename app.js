@@ -1,29 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const mainRoutes = require("./routes");
-// const sequelize = require("./util/sequelize");
 
-// const Task = require("./models/task");
-
-// (async () => {
-//   await sequelize.sync({ force: true });
-//   const newTask = await Task.create({ name: "New task" });
-//   console.log(newTask.name);
-//   newTask.name = "Task 2";
-//   await newTask.destroy();
-// })();
-
-// console.log("Task", Task);
-
-// const createNewTask = async () => {
-//   const task = await Task.create({ name: "Task 1" });
-// };
-
-// createNewTask();
-
-const PORT = 3000;
+const PORT = 3001;
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

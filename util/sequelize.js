@@ -15,9 +15,9 @@ const connectionTest = async () => {
   }
 };
 
-sequelize.sync({
-  force: true,
-});
+// sequelize.sync({
+//   force: true,
+// });
 
 connectionTest();
 
